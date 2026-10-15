@@ -1,0 +1,2 @@
+orderId,customerName,mobile,email,address,city,pinCode,gadgetSerial,gadgetName,quantity,unitPrice,totalAmount,paymentMethod,status,orderDateTime
+ORD-1001,Vicious Dark,9897142424,viciousdark06@gmail.com,"i2it college, symbiosis , hinjewadi phase 1, phase2, pune",pune,411057,MOB101,lenevoideapadslim3,1,57000.0,57000.0,Cash on Delivery,Order Placed,"14 Oct 2026, 10:42 am"

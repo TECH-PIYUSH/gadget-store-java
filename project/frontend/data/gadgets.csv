@@ -1,0 +1,13 @@
+category,serialNumber,name,brand,specifications,sellingPrice,originalPrice,stock,warrantyMonths
+Mobile,MOB001,Galaxy S24,Samsung,256 GB storage,71249.05,74999.0,9,12
+Mobile,MOB002,iPhone 15,Apple,128 GB storage,75905.0,79900.0,5,12
+Mobile,MOB003,Redmi Note 13,Xiaomi,128 GB storage,17099.05,17999.0,20,12
+Mobile,MOB004,Pixel 8,Google,128 GB storage,66499.05,69999.0,0,12
+Laptop,LAP001,Inspiron 15,Dell,16 GB RAM,49491.0,54990.0,8,24
+Laptop,LAP002,MacBook Air M2,Apple,8 GB RAM,89910.0,99900.0,3,24
+Laptop,LAP003,IdeaPad Slim 3,Lenovo,8 GB RAM,38691.0,42990.0,12,24
+Laptop,LAP004,Lenovo IdeaPad,Lenovo,16 GB RAM,51300.0,57000.0,20,24
+Smartwatch,WAT001,Apple Watch SE,Apple,40 mm display,24900.0,27900.0,6,12
+Smartwatch,WAT002,Samsung Galaxy Watch,Samsung,44 mm display,19999.0,22999.0,8,12
+Smartwatch,WAT003,Redmi Watch 5,Xiaomi,47 mm display,4999.0,6999.0,12,12
+Smartwatch,WAT004,Noise ColorFit,Noise,1.85-inch display,2499.0,4999.0,0,12

@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>GadgetStore — Electronic Gadgets Store</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- ===================== TOP NAVIGATION ===================== -->
+    <nav class="navbar">
+      <div class="nav-inner">
+        <div class="logo" data-testid="brand-logo">Gadget<span>Store</span></div>
+        <div class="nav-links">
+          <a href="#" class="nav-link active" data-section="catalog" data-testid="nav-catalog">Catalog</a>
+          <a href="#" class="nav-link" data-section="add" data-testid="nav-add-gadget">Add Gadget</a>
+          <a href="#" class="nav-link" data-section="order" data-testid="nav-place-order">Place Order</a>
+          <a href="#" class="nav-link" data-section="history" data-testid="nav-history">History</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="container">
+      <!-- ===================== CATALOG ===================== -->
+      <section id="section-catalog" class="section active" data-testid="section-catalog">
+        <div class="section-head">
+          <div>
+            <h1>Catalog</h1>
+            <p class="muted">All gadgets currently in the store.</p>
+          </div>
+          <div class="catalog-controls">
+            <input id="search" class="input" type="text" placeholder="Search name or brand" data-testid="catalog-search" />
+            <select id="category-filter" class="input" data-testid="catalog-category-filter">
+              <option value="All">All categories</option>
+              <option value="Mobile">Mobile</option>
+              <option value="Laptop">Laptop</option>
+              <option value="Smartwatch">Smartwatch</option>
+            </select>
+          </div>
+        </div>
+        <div id="catalog-grid" class="grid" data-testid="catalog-grid"></div>
+        <p id="catalog-empty" class="muted empty-note" style="display:none" data-testid="catalog-empty">No gadgets match your search.</p>
+      </section>
+
+      <!-- ===================== ADD GADGET ===================== -->
+      <section id="section-add" class="section" data-testid="section-add">
+        <h1>Add Gadget</h1>
+        <p class="muted">Add a new gadget to the store inventory.</p>
+        <form id="add-form" class="card form-card" data-testid="add-gadget-form" autocomplete="off">
+          <div class="form-grid">
+            <label>Product name
+              <input name="name" class="input" data-testid="add-name" required />
+            </label>
+            <label>Brand
+              <input name="brand" class="input" data-testid="add-brand" required />
+            </label>
+            <label>Category
+              <select name="category" class="input" data-testid="add-category" required>
+                <option value="Mobile">Mobile</option>
+                <option value="Laptop">Laptop</option>
+                <option value="Smartwatch">Smartwatch</option>
+              </select>
+            </label>
+            <label>Serial number
+              <input name="serialNumber" class="input" data-testid="add-serial" required />
+            </label>
+            <label>Specifications
+              <input name="specifications" class="input" placeholder="e.g. 256 GB storage" data-testid="add-specs" required />
+            </label>
+            <label>Selling price (₹)
+              <input name="sellingPrice" class="input" type="number" min="0" step="0.01" data-testid="add-selling-price" required />
+            </label>
+            <label>Original price (₹)
+              <input name="originalPrice" class="input" type="number" min="0" step="0.01" data-testid="add-original-price" required />
+            </label>
+            <label>Initial stock
+              <input name="stock" class="input" type="number" min="0" step="1" data-testid="add-stock" required />
+            </label>
+            <label>Warranty (months)
+              <input name="warrantyMonths" class="input" type="number" min="0" step="1" data-testid="add-warranty" required />
+            </label>
+          </div>
+          <button type="submit" class="btn btn-primary" data-testid="add-submit">Add Gadget</button>
+          <p id="add-message" class="message" data-testid="add-message"></p>
+        </form>
+      </section>
+
+      <!-- ===================== PLACE ORDER ===================== -->
+      <section id="section-order" class="section" data-testid="section-order">
+        <h1>Place Order</h1>
+        <p class="muted">Pay with Cash on Delivery (COD). No online payment needed.</p>
+        <form id="order-form" class="card form-card" data-testid="order-form" autocomplete="off">
+          <h3 class="form-subhead">Gadget</h3>
+          <div class="form-grid">
+            <label>Select gadget
+              <select name="serialNumber" id="order-gadget" class="input" data-testid="order-gadget" required></select>
+            </label>
+            <label>Quantity
+              <input name="quantity" id="order-qty" class="input" type="number" min="1" step="1" value="1" data-testid="order-quantity" required />
+            </label>
+          </div>
+
+          <h3 class="form-subhead">Customer details</h3>
+          <div class="form-grid">
+            <label>Full name
+              <input name="fullName" class="input" pattern="[a-zA-Z\s]+" title="Only letters and spaces are allowed" oninput="this.value = this.value.replace(/[^a-zA-Z\s]/g, '')" data-testid="order-fullname" required />
+            </label>
+            <label>Mobile number (10 digits)
+              <input name="mobile" class="input" inputmode="numeric" pattern="\d{10}" title="Must be exactly 10 digits" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 10)" data-testid="order-mobile" required />
+            </label>
+            <label>Email (optional)
+              <input name="email" class="input" type="email" data-testid="order-email" />
+            </label>
+            <label>City
+              <input name="city" class="input" data-testid="order-city" required />
+            </label>
+            <label>PIN code (6 digits)
+              <input name="pinCode" class="input" inputmode="numeric" pattern="\d{6}" title="Must be exactly 6 digits" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 6)" data-testid="order-pincode" required />
+            </label>
+            <label class="full">Delivery address
+              <textarea name="address" class="input" rows="2" data-testid="order-address" required></textarea>
+            </label>
+          </div>
+
+          <div class="order-summary">
+            <div class="pay-line">Payment method: <strong data-testid="order-payment-method">Cash on Delivery (COD)</strong></div>
+            <div class="total-line">Total: <strong id="order-total" data-testid="order-total">₹0</strong></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary" data-testid="order-submit">Place COD Order</button>
+          <p id="order-message" class="message" data-testid="order-message"></p>
+        </form>
+
+        <div id="order-confirmation" class="card confirm-card" style="display:none" data-testid="order-confirmation"></div>
+      </section>
+
+      <!-- ===================== HISTORY ===================== -->
+      <section id="section-history" class="section" data-testid="section-history">
+        <h1>History</h1>
+        <p class="muted">All successfully placed orders.</p>
+        <div class="table-wrap">
+          <table class="history-table" data-testid="history-table">
+            <thead>
+              <tr>
+                <th>Order ID</th><th>Customer</th><th>Mobile</th><th>Gadget</th>
+                <th>Qty</th><th>Total</th><th>Payment</th><th>Address</th><th>Date &amp; time</th><th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="history-body"></tbody>
+          </table>
+        </div>
+        <p id="history-empty" class="muted empty-note" style="display:none" data-testid="history-empty">No orders placed yet.</p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>
